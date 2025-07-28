@@ -1,0 +1,45 @@
+ungrouped:
+  hosts:
+    nas:
+      ansible_host: 192.168.50.248
+    pbs:
+      ansible_host: 192.168.50.101
+    pve:
+      ansible_host: 192.168.50.2
+    router:
+      ansible_host: 192.168.50.1
+
+alpine-lxcs:
+  hosts:
+    arrs
+    immich
+
+debian-lxcs:
+  hosts:
+    birdnet
+    crowdsec
+    docker
+    frigate
+    grafana
+    influxdb
+    minecraft
+    nginxproxymanager
+
+ubuntu-lxcs:
+  hosts:
+    jellyfin
+
+lxcs:
+  children:
+    alpine-lxcs
+    debian-lxcs
+    ubuntu-lxcs
+
+vms:
+  hosts:
+    homeassistant
+
+proxmox:
+  childen:
+    lxcs
+    vms
